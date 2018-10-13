@@ -18,6 +18,8 @@ import java.util.concurrent.Semaphore;
  */
 public class ProyectoOperativos {
     
+    public UI userI;
+    
     private Almacen Apantallas;
     private Almacen Acables;
     private Almacen Abaterias;
@@ -70,6 +72,8 @@ public class ProyectoOperativos {
      
 
     public ProyectoOperativos(int Apan, int Acab, int Abat, int DormirPantalla, int DormirCable, int DormirBateria, int DormirEnsamblador, int MaxP, int MaxC, int MaxB, int MaxE) {
+        userI= new UI(this);
+        userI.setVisible(true);
         this.Abat=Abat;
         this.Acab=Acab;
         this.Apan=Apan;
@@ -136,10 +140,26 @@ public class ProyectoOperativos {
         return BateriasT;
     }
     
-    
+   
 
     public int getUnidadesT() {
         return UnidadesT;
+    }
+
+    public int getEmpleadosP() {
+        return empleadosP;
+    }
+
+    public int getEmpleadosC() {
+        return empleadosC;
+    }
+
+    public int getEmpleadosB() {
+        return empleadosB;
+    }
+
+    public int getEmpleadosE() {
+        return empleadosE;
     }
     
     
@@ -272,6 +292,8 @@ public class ProyectoOperativos {
        for(int i=0; i<ensambladoresini; i++){
        a.contratarEnsamblador();           
        }
+       
+      
        
        
     }

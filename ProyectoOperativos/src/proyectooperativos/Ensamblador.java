@@ -127,6 +127,7 @@ public class Ensamblador extends Thread{
             a1.setVec(apuntP1, val);
             apuntP1=(apuntP1+1)%a1.getTam();
             this.PantSum();
+            this.PP.userI.ActLabels();
             sC1.release();
             sE1.release();
         } catch (InterruptedException ex) {
@@ -145,6 +146,7 @@ public class Ensamblador extends Thread{
             a2.setVec(apuntP2, val);
             apuntP2=(apuntP2+1)%a2.getTam();
             this.CabSum();
+            this.PP.userI.ActLabels();
             sC2.release();
             sE2.release();
         } catch (InterruptedException ex) {
@@ -163,6 +165,7 @@ public class Ensamblador extends Thread{
             a3.setVec(apuntP3, val);
             apuntP3=(apuntP3+1)%a3.getTam();
             this.BatSum();
+            this.PP.userI.ActLabels();
             sC3.release();
             sE3.release();
         } catch (InterruptedException ex) {
