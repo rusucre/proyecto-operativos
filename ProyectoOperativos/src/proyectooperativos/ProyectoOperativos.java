@@ -61,10 +61,13 @@ public class ProyectoOperativos {
      private int MaxB;
      private int MaxE;
      
-     private int IniP;
-     private int IniC;
-     private int IniB;
-     private int IniE;
+     
+     private int PantallasT;
+    private int CablesT;
+    private int BateriasT;
+    private int UnidadesT;
+     
+     
 
     public ProyectoOperativos(int Apan, int Acab, int Abat, int DormirPantalla, int DormirCable, int DormirBateria, int DormirEnsamblador, int MaxP, int MaxC, int MaxB, int MaxE) {
         this.Abat=Abat;
@@ -111,18 +114,64 @@ public class ProyectoOperativos {
     pbaterias=new Productor [MaxB]; //inicial 2 maximo 4
     ensambladores= new Ensamblador[MaxE]; //incial 1 maximo 5
     
+    PantallasT=0;
+        CablesT=0;
+        BateriasT=0;
+        UnidadesT=0;
+    
    
          
     
+    }
+
+    public int getPantallasT() {
+        return PantallasT;
+    }
+
+    public int getCablesT() {
+        return CablesT;
+    }
+
+    public int getBateriasT() {
+        return BateriasT;
+    }
+    
+    
+
+    public int getUnidadesT() {
+        return UnidadesT;
+    }
+    
+    
+    
+    public void SumarP(){
+        PantallasT++;
+    }
+    public void SumarC(){
+        CablesT++;
+    }
+    public void SumarB(){
+        BateriasT++;
+    }
+    public void SumarU(){
+        UnidadesT++;
+    }
+    
+    public void RestarC(){
+        PantallasT--;
+        BateriasT--;
+        CablesT--;
+        CablesT--;
     }
     
     public void contratarPantalla(){
          int i=0;
          do{
              if(ppantallas[i]==null){
-                 ppantallas[i]=new Productor(Apantallas, semaProductoresPantalla, semaConsumidoresPantalla, semaExclusividadPantalla, apuntPpantallas,1,DormirPantalla);
+                 ppantallas[i]=new Ppantalla(this, Apantallas, semaProductoresPantalla, semaConsumidoresPantalla, semaExclusividadPantalla, apuntPpantallas,1,DormirPantalla);
                  empleadosP++;
                  ppantallas[i].start();
+                 i=this.MaxP;
              }else{
                  i++;
              }
@@ -133,10 +182,10 @@ public class ProyectoOperativos {
         int i=0;
          do{
              if(pcables[i]==null){
-                 pcables[i]=new Productor(Acables, semaProductoresCables, semaConsumidoresCables, semaExclusividadCables, apuntPcables,1,DormirCable);
+                 pcables[i]=new Pcable(this, Acables, semaProductoresCables, semaConsumidoresCables, semaExclusividadCables, apuntPcables,1,DormirCable);
                  empleadosC++;
                  pcables[i].start();
-                 i=3;
+                 i=this.MaxC;
              }else{
                  i++;
              }
@@ -148,10 +197,10 @@ public class ProyectoOperativos {
         int i=0;
          do{
              if(pbaterias[i]==null){
-                 pbaterias[i]=new Productor(Abaterias, semaProductoresBaterias, semaConsumidoresBaterias, semaExclusividadBaterias, apuntPbaterias,1,DormirBateria);
+                 pbaterias[i]=new Pbateria(this, Abaterias, semaProductoresBaterias, semaConsumidoresBaterias, semaExclusividadBaterias, apuntPbaterias,1,DormirBateria);
                  empleadosB++;
                  pbaterias[i].start();
-                 i=4;
+                 i=this.MaxB;
              }else{
                  i++;
              }
@@ -165,10 +214,10 @@ public class ProyectoOperativos {
              if(ensambladores[i]==null){
 //                     public Ensamblador(Almacen a1, Semaphore sP1, Semaphore sC1, Semaphore sE1, Semaphore sI1, int apuntP1, Almacen a2, Semaphore sP2, Semaphore sC2, Semaphore sE2, Semaphore sI2, int apuntP2, Almacen a3, Semaphore sP3, Semaphore sC3, Semaphore sE3, Semaphore sI3, int apuntP3, int val) {
 
-                 ensambladores[i]=new Ensamblador(Apantallas, semaConsumidoresPantalla, semaProductoresPantalla, semaExclusividadPantalla, apuntCpantallas, Acables, semaConsumidoresCables, semaProductoresCables, semaExclusividadCables,apuntCcables ,Abaterias, semaConsumidoresBaterias, semaProductoresBaterias, semaExclusividadBaterias, apuntCbaterias,0, DormirEnsamblador);
+                 ensambladores[i]=new Ensamblador(this, Apantallas, semaConsumidoresPantalla, semaProductoresPantalla, semaExclusividadPantalla, apuntCpantallas, Acables, semaConsumidoresCables, semaProductoresCables, semaExclusividadCables,apuntCcables ,Abaterias, semaConsumidoresBaterias, semaProductoresBaterias, semaExclusividadBaterias, apuntCbaterias,0, DormirEnsamblador);
                  empleadosE++;
                  ensambladores[i].start();
-                 i=5;
+                 i=MaxE;
              }else{
                  i++;
              }

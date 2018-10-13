@@ -13,6 +13,7 @@ import java.util.logging.Logger;
  * @author risy1
  */
 public class Ensamblador extends Thread{
+    private ProyectoOperativos PP;
     private int pantallas; // 1 pantalla
     private int cables; // 2 cables
     private int baterias; // 1 bateria
@@ -37,8 +38,11 @@ public class Ensamblador extends Thread{
     private int val;
     private int unidades;
     private int dormir;
+    
+    
 
-    public Ensamblador(Almacen a1, Semaphore sP1, Semaphore sC1, Semaphore sE1, int apuntP1, Almacen a2, Semaphore sP2, Semaphore sC2, Semaphore sE2, int apuntP2, Almacen a3, Semaphore sP3, Semaphore sC3, Semaphore sE3, int apuntP3, int val, int dormir) {
+    public Ensamblador(ProyectoOperativos PP,Almacen a1, Semaphore sP1, Semaphore sC1, Semaphore sE1, int apuntP1, Almacen a2, Semaphore sP2, Semaphore sC2, Semaphore sE2, int apuntP2, Almacen a3, Semaphore sP3, Semaphore sC3, Semaphore sE3, int apuntP3, int val, int dormir) {
+        this.PP=PP;
         this.a1 = a1;
         this.sP1 = sP1;
         this.sC1 = sC1;
@@ -68,12 +72,13 @@ public class Ensamblador extends Thread{
             }catch(InterruptedException ex){
                 
             }
-            unidades++;
+            PP.SumarU();
+            PP.RestarC();
             pantallas--;
             cables--;
             cables--;
             baterias--;
-            System.out.println("tengo uno mas xd"+this.unidades);
+            System.out.println("tengo uno mas xd"+PP.getUnidadesT());
             
             
             

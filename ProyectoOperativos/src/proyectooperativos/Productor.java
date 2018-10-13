@@ -11,24 +11,32 @@ import java.util.logging.Logger;
 
 
 public class Productor extends Thread{
+    protected ProyectoOperativos PP;
     Almacen a;
-    private Semaphore sP;
-    private Semaphore sC;
-    private Semaphore sE;
-    private int apuntP;
-    private int val;
-    private int unidades;
-    private int dormir;
+    protected Semaphore sP;
+    protected Semaphore sC;
+    protected Semaphore sE;
+    protected int apuntP;
+    protected int val;
+    protected int dormir;
 
-    public Productor(Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int domir) {
+    public Productor(ProyectoOperativos PP,Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
+        this.PP=PP;
         this.a = a;
         this.sP = sP;
         this.sC = sC;
         this.sE = sE;
         this.apuntP=apuntP;
         this.val=val;
-        this.dormir=dormir;
+        this.dormir = dormir;
     }
+    
+    public void Sumar(){
+        
+    }
+    
+   
+    
     
     @Override
     public void run(){
@@ -39,6 +47,7 @@ public class Productor extends Thread{
             sE.acquire();
             a.setVec(apuntP, val);
             apuntP=(apuntP+1)%a.getTam();
+            this.Sumar();
             sC.release();
             sE.release();
         } catch (InterruptedException ex) {
