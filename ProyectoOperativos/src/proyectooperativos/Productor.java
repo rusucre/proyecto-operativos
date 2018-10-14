@@ -19,6 +19,7 @@ public class Productor extends Thread{
     protected int apuntP;
     protected int val;
     protected int dormir;
+    protected boolean fuego=true;
 
     public Productor(ProyectoOperativos PP,Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
         this.PP=PP;
@@ -35,12 +36,14 @@ public class Productor extends Thread{
         
     }
     
-   
+   public void chao(){
+       this.fuego=false;
+   }
     
     
     @Override
     public void run(){
-        while(true){
+        while(fuego){
         try {
             Thread.sleep(dormir);
             sP.acquire();

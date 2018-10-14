@@ -194,6 +194,7 @@ public class ProyectoOperativos {
                  empleadosP++;
                  ppantallas[i].start();
                  i=this.MaxP;
+                 userI.ActLabels();
              }else{
                  i++;
              }
@@ -208,6 +209,7 @@ public class ProyectoOperativos {
                  empleadosC++;
                  pcables[i].start();
                  i=this.MaxC;
+                 userI.ActLabels();
              }else{
                  i++;
              }
@@ -223,6 +225,7 @@ public class ProyectoOperativos {
                  empleadosB++;
                  pbaterias[i].start();
                  i=this.MaxB;
+                 userI.ActLabels();
              }else{
                  i++;
              }
@@ -240,11 +243,77 @@ public class ProyectoOperativos {
                  empleadosE++;
                  ensambladores[i].start();
                  i=MaxE;
+                 userI.ActLabels();
              }else{
                  i++;
              }
          }while(i<this.MaxE);
+         
+         
        
+    }
+    
+    public void despedirPantalla(){
+             int i=0;
+         do{
+             if(ppantallas[i]!=null){
+                 ppantallas[i].chao();
+                 ppantallas[i]=null;
+                 empleadosP--;
+                 i=this.MaxP;
+                 userI.ActLabels();
+             }else{
+                 i++;
+             }
+         }while(i<this.MaxP);
+         }
+    
+    public void despedirCable(){
+                     int i=0;
+         do{
+             if(pcables[i]!=null){
+                 pcables[i].chao();
+                 pcables[i]=null;
+                 empleadosC--;
+                 i=this.MaxC;
+                 userI.ActLabels();
+             }else{
+                 i++;
+             }
+         }while(i<this.MaxC);
+        
+    }
+    
+    public void despedirBateria(){
+                     int i=0;
+         do{
+             if(pbaterias[i]!=null){
+                 pbaterias[i].chao();
+                 pbaterias[i]=null;
+                 empleadosB--;
+                 i=this.MaxB;
+                 userI.ActLabels();
+             }else{
+                 i++;
+             }
+         }while(i<this.MaxB);
+        
+    }
+    
+    public void despedirEnsamblador(){
+                     int i=0;
+         do{
+             if(ensambladores[i]!=null){
+                 ensambladores[i].chao();
+                 ensambladores[i]=null;
+                 empleadosE--;
+                 i=this.MaxE;
+                 userI.ActLabels();
+             }else{
+                 i++;
+             }
+         }while(i<this.MaxE);
+        
     }
 //    public void despedirPantalla(){
 //              

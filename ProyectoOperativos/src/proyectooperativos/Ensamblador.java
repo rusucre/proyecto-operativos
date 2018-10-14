@@ -39,6 +39,7 @@ public class Ensamblador extends Thread{
     private int unidades;
     private int dormir;
     private Semaphore units;
+    private boolean fuego=true;
     
     
 
@@ -114,10 +115,14 @@ public class Ensamblador extends Thread{
          this.baterias++;
      }
      
+     public void chao(){
+         this.fuego=false;
+     }
+     
      
      
       public void run(){
-        while(true){
+        while(fuego){
        
               try {
             this.PP.userI.ActLabels();
