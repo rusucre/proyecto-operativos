@@ -308,7 +308,7 @@ public class ProyectoOperativos {
                  ensambladores[i]=null;
                  empleadosE--;
                  i=this.MaxE;
-                 userI.ActLabels();
+                 userI.ActLabels(); 
              }else{
                  i++;
              }
