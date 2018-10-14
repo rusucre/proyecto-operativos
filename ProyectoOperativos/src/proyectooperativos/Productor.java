@@ -46,15 +46,15 @@ public class Productor extends Thread{
             sP.acquire();
             sE.acquire();
             a.setVec(apuntP, val);
-            apuntP=(apuntP+1)%a.getTam();
             this.Sumar();
+            apuntP=(apuntP+1)%a.getTam();
             this.PP.userI.ActLabels();
             sC.release();
             sE.release();
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
+
         }
     }
 

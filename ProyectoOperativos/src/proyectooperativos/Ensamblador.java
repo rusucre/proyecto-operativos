@@ -67,13 +67,14 @@ public class Ensamblador extends Thread{
     
     public void contruir(){
         if(pantallas==1&&cables==2&&baterias==1){
+            PP.SumarU();
+            PP.RestarC();
             try{
             Thread.sleep(dormir);
             }catch(InterruptedException ex){
                 
             }
-            PP.SumarU();
-            PP.RestarC();
+
             pantallas--;
             cables--;
             cables--;
@@ -121,7 +122,7 @@ public class Ensamblador extends Thread{
             
           if(!NeedPantallas()){
               try {
-            
+            this.PP.userI.ActLabels();
             sP1.acquire();
             sE1.acquire();
             a1.setVec(apuntP1, val);
@@ -130,6 +131,7 @@ public class Ensamblador extends Thread{
             this.PP.userI.ActLabels();
             sC1.release();
             sE1.release();
+            this.PP.userI.ActLabels();
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -140,15 +142,19 @@ public class Ensamblador extends Thread{
             
           if(!NeedCables()){
               try {
-            
-            sP2.acquire();
-            sE2.acquire();
-            a2.setVec(apuntP2, val);
-            apuntP2=(apuntP2+1)%a2.getTam();
-            this.CabSum();
             this.PP.userI.ActLabels();
-            sC2.release();
+            sP2.acquire(2);
+            sE2.acquire();
+            this.PP.userI.ActLabels();
+            for(int i=0;i<2;i++){
+                a2.setVec(apuntP2, val);
+                apuntP2=(apuntP2+1)%a2.getTam();
+                this.CabSum();
+            }
+            this.PP.userI.ActLabels();
+            sC2.release(2);
             sE2.release();
+            this.PP.userI.ActLabels();
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -159,7 +165,7 @@ public class Ensamblador extends Thread{
             
           if(!NeedBaterias()){
               try {
-            
+            this.PP.userI.ActLabels();
             sP3.acquire();
             sE3.acquire();
             a3.setVec(apuntP3, val);
@@ -168,6 +174,7 @@ public class Ensamblador extends Thread{
             this.PP.userI.ActLabels();
             sC3.release();
             sE3.release();
+            this.PP.userI.ActLabels();
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }

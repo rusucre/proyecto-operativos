@@ -268,11 +268,11 @@ public class ProyectoOperativos {
         int bateriasmaximas=35;
         int productoresdepantallasmas=8;
         int productoresdecablesmax=4;
-        int productoresdebateriasmax=3;
+        int productoresdebateriasmax=5;
         int ensambladoresmax=5;
-        int productoresdepantallasini=3;
-        int productoresdecablesini=2; 
-        int productoresdebateriasini=1;
+        int productoresdepantallasini=1;
+        int productoresdecablesini=4; 
+        int productoresdebateriasini=4;
         int ensambladoresini=1;
 
         // leer jason
@@ -281,16 +281,16 @@ public class ProyectoOperativos {
        ProyectoOperativos a= new ProyectoOperativos(pantallasmaximas,cablesmaximos,bateriasmaximas,(dia),(2*dia),(dia),(2*dia),productoresdepantallasmas,productoresdecablesmax,productoresdebateriasmax,ensambladoresmax);
        
        for(int i=0; i<productoresdepantallasini; i++){
-       a.contratarPantalla();           
+       a.contratarPantalla();   
        }
        for(int i=0; i<productoresdecablesini; i++){
-       a.contratarCable();           
+       a.contratarCable(); 
        }
        for(int i=0; i<productoresdebateriasini; i++){
-       a.contratarBateria();           
+       a.contratarBateria();  
        }
        for(int i=0; i<ensambladoresini; i++){
-       a.contratarEnsamblador();           
+       a.contratarEnsamblador();  
        }
        
       
