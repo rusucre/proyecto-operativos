@@ -35,6 +35,7 @@ public class ProyectoOperativos {
     private Semaphore semaConsumidoresBaterias;
     private Semaphore semaExclusividadBaterias;
     private Semaphore semaImpresionBaterias;
+    private Semaphore Ensam;
     private int apuntPpantallas;
     private int apuntCpantallas;
     private int apuntPcables;
@@ -103,6 +104,7 @@ public class ProyectoOperativos {
           semaProductoresBaterias=new Semaphore(Abat);
           semaConsumidoresBaterias=new Semaphore(0);
           semaExclusividadBaterias=new Semaphore(1);
+          Ensam=new Semaphore(1);
           
           
           
@@ -234,7 +236,7 @@ public class ProyectoOperativos {
              if(ensambladores[i]==null){
 //                     public Ensamblador(Almacen a1, Semaphore sP1, Semaphore sC1, Semaphore sE1, Semaphore sI1, int apuntP1, Almacen a2, Semaphore sP2, Semaphore sC2, Semaphore sE2, Semaphore sI2, int apuntP2, Almacen a3, Semaphore sP3, Semaphore sC3, Semaphore sE3, Semaphore sI3, int apuntP3, int val) {
 
-                 ensambladores[i]=new Ensamblador(this, Apantallas, semaConsumidoresPantalla, semaProductoresPantalla, semaExclusividadPantalla, apuntCpantallas, Acables, semaConsumidoresCables, semaProductoresCables, semaExclusividadCables,apuntCcables ,Abaterias, semaConsumidoresBaterias, semaProductoresBaterias, semaExclusividadBaterias, apuntCbaterias,0, DormirEnsamblador);
+                 ensambladores[i]=new Ensamblador(this.Ensam, this, Apantallas, semaConsumidoresPantalla, semaProductoresPantalla, semaExclusividadPantalla, apuntCpantallas, Acables, semaConsumidoresCables, semaProductoresCables, semaExclusividadCables,apuntCcables ,Abaterias, semaConsumidoresBaterias, semaProductoresBaterias, semaExclusividadBaterias, apuntCbaterias,0, DormirEnsamblador);
                  empleadosE++;
                  ensambladores[i].start();
                  i=MaxE;

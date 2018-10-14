@@ -38,10 +38,12 @@ public class Ensamblador extends Thread{
     private int val;
     private int unidades;
     private int dormir;
+    private Semaphore units;
     
     
 
-    public Ensamblador(ProyectoOperativos PP,Almacen a1, Semaphore sP1, Semaphore sC1, Semaphore sE1, int apuntP1, Almacen a2, Semaphore sP2, Semaphore sC2, Semaphore sE2, int apuntP2, Almacen a3, Semaphore sP3, Semaphore sC3, Semaphore sE3, int apuntP3, int val, int dormir) {
+    public Ensamblador(Semaphore units, ProyectoOperativos PP,Almacen a1, Semaphore sP1, Semaphore sC1, Semaphore sE1, int apuntP1, Almacen a2, Semaphore sP2, Semaphore sC2, Semaphore sE2, int apuntP2, Almacen a3, Semaphore sP3, Semaphore sC3, Semaphore sE3, int apuntP3, int val, int dormir) {
+        this.units=units;
         this.PP=PP;
         this.a1 = a1;
         this.sP1 = sP1;
@@ -65,31 +67,30 @@ public class Ensamblador extends Thread{
     
     
     
-    public void contruir(){
-        if(pantallas==1&&cables==2&&baterias==1){
-            PP.SumarU();
-            PP.RestarC();
-            try{
-            Thread.sleep(dormir);
-            }catch(InterruptedException ex){
-                
-            }
-
-            pantallas--;
-            cables--;
-            cables--;
-            baterias--;
-            System.out.println("tengo uno mas xd"+PP.getUnidadesT());
-            
-            
-            
-            
-            
-            
-            
-            
-        }
-    }
+//    public void contruir(){
+//        if(pantallas==1&&cables==2&&baterias==1){
+//            PP.RestarC();
+////            try{
+////            Thread.sleep(dormir);
+////            }catch(InterruptedException ex){
+////                
+////            }
+////            PP.SumarU();
+////            pantallas--;
+////            cables--;
+////            cables--;
+////            baterias--;
+////            System.out.println("tengo uno mas xd"+PP.getUnidadesT());
+//            
+//            
+//            
+//            
+//            
+//            
+//            
+//            
+//        }
+//    }
     
     public boolean NeedPantallas(){
         return (pantallas==1);
@@ -117,10 +118,7 @@ public class Ensamblador extends Thread{
      
       public void run(){
         while(true){
-        
-            this.contruir();
-            
-          if(!NeedPantallas()){
+       
               try {
             this.PP.userI.ActLabels();
             sP1.acquire();
@@ -136,11 +134,7 @@ public class Ensamblador extends Thread{
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
             
-          }  
-          
-          this.contruir();
             
-          if(!NeedCables()){
               try {
             this.PP.userI.ActLabels();
             sP2.acquire(2);
@@ -158,12 +152,7 @@ public class Ensamblador extends Thread{
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
-            
-          }
-          
-          this.contruir();
-            
-          if(!NeedBaterias()){
+                                 
               try {
             this.PP.userI.ActLabels();
             sP3.acquire();
@@ -178,8 +167,27 @@ public class Ensamblador extends Thread{
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
+              
+              try {
+            this.PP.userI.ActLabels();
+            units.acquire();
+            PP.RestarC();
+            units.release();
+            Thread.sleep(dormir);
+            units.acquire();
+            PP.SumarU();
+            units.release();
+            pantallas--;
+            cables--;
+            cables--;
+            baterias--;
+            System.out.println("tengo uno mas xd"+PP.getUnidadesT());
+            this.PP.userI.ActLabels();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+        }
             
-          }
+          
             
             
             
