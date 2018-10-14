@@ -177,12 +177,21 @@ public class UI extends javax.swing.JFrame {
         getContentPane().add(filler6);
         getContentPane().add(filler2);
 
-        jButton7.setBackground(new java.awt.Color(204, 255, 204));
+        jButton7.setBackground(new java.awt.Color(0, 102, 0));
         jButton7.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(0, 102, 0));
+        jButton7.setForeground(new java.awt.Color(153, 255, 153));
         jButton7.setText("Contratar");
         jButton7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7.setFocusPainted(false);
+        jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton7MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton7MouseExited(evt);
+            }
+        });
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -190,11 +199,21 @@ public class UI extends javax.swing.JFrame {
         });
         getContentPane().add(jButton7);
 
-        jButton3.setBackground(new java.awt.Color(204, 255, 204));
+        jButton3.setBackground(new java.awt.Color(0, 102, 0));
         jButton3.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 102, 0));
+        jButton3.setForeground(new java.awt.Color(153, 255, 153));
         jButton3.setText("Contratar");
         jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.setFocusPainted(false);
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton3MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton3MouseExited(evt);
+            }
+        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -202,11 +221,21 @@ public class UI extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3);
 
-        jButton5.setBackground(new java.awt.Color(204, 255, 204));
+        jButton5.setBackground(new java.awt.Color(0, 102, 0));
         jButton5.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 102, 0));
+        jButton5.setForeground(new java.awt.Color(153, 255, 153));
         jButton5.setText("Contratar");
         jButton5.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton5.setFocusPainted(false);
+        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton5MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton5MouseExited(evt);
+            }
+        });
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -214,11 +243,21 @@ public class UI extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5);
 
-        jButton1.setBackground(new java.awt.Color(204, 255, 204));
+        jButton1.setBackground(new java.awt.Color(0, 102, 0));
         jButton1.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 102, 0));
+        jButton1.setForeground(new java.awt.Color(153, 255, 153));
         jButton1.setText("Contratar");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setFocusPainted(false);
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton1MouseExited(evt);
+            }
+        });
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -228,11 +267,21 @@ public class UI extends javax.swing.JFrame {
         getContentPane().add(filler7);
         getContentPane().add(filler3);
 
-        jButton4.setBackground(new java.awt.Color(255, 204, 204));
+        jButton4.setBackground(new java.awt.Color(204, 0, 0));
         jButton4.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 0, 0));
+        jButton4.setForeground(new java.awt.Color(255, 204, 204));
         jButton4.setText("Despedir");
         jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setFocusPainted(false);
+        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton4MouseExited(evt);
+            }
+        });
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -240,11 +289,21 @@ public class UI extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4);
 
-        jButton6.setBackground(new java.awt.Color(255, 204, 204));
+        jButton6.setBackground(new java.awt.Color(204, 0, 0));
         jButton6.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 0, 0));
+        jButton6.setForeground(new java.awt.Color(255, 204, 204));
         jButton6.setText("Despedir");
         jButton6.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.setFocusPainted(false);
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton6MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton6MouseExited(evt);
+            }
+        });
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -252,11 +311,21 @@ public class UI extends javax.swing.JFrame {
         });
         getContentPane().add(jButton6);
 
-        jButton8.setBackground(new java.awt.Color(255, 204, 204));
+        jButton8.setBackground(new java.awt.Color(204, 0, 0));
         jButton8.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 0, 0));
+        jButton8.setForeground(new java.awt.Color(255, 204, 204));
         jButton8.setText("Despedir");
         jButton8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton8.setFocusPainted(false);
+        jButton8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton8MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton8MouseExited(evt);
+            }
+        });
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -264,11 +333,21 @@ public class UI extends javax.swing.JFrame {
         });
         getContentPane().add(jButton8);
 
-        jButton2.setBackground(new java.awt.Color(255, 204, 204));
+        jButton2.setBackground(new java.awt.Color(204, 0, 0));
         jButton2.setFont(new java.awt.Font("Monospaced", 1, 24)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 0, 0));
+        jButton2.setForeground(new java.awt.Color(255, 204, 204));
         jButton2.setText("Despedir");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setFocusPainted(false);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jButton2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jButton2MouseExited(evt);
+            }
+        });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -347,6 +426,84 @@ PP.despedirBateria();        // TODO add your handling code here:
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 PP.despedirEnsamblador();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseEntered
+this.jButton7.setBackground(new java.awt.Color(0, 150, 0));     // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7MouseEntered
+
+    private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
+jButton7.setBackground(new java.awt.Color(0, 102, 0));        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7MouseExited
+
+    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+this.jButton3.setBackground(new java.awt.Color(0, 150, 0));     // TODO add your handling code here:
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseEntered
+
+    private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
+this.jButton5.setBackground(new java.awt.Color(0, 150, 0));     // TODO add your handling code here:
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseEntered
+
+    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
+this.jButton1.setBackground(new java.awt.Color(0, 150, 0));     // TODO add your handling code here:
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseEntered
+
+    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+jButton3.setBackground(new java.awt.Color(0, 102, 0));        // TODO add your handling code here:
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3MouseExited
+
+    private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
+jButton5.setBackground(new java.awt.Color(0, 102, 0));        // TODO add your handling code here:
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5MouseExited
+
+    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
+jButton1.setBackground(new java.awt.Color(0, 102, 0));        // TODO add your handling code here:
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseExited
+
+    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
+        jButton4.setBackground(new java.awt.Color(250, 0, 0));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseEntered
+
+    private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
+        jButton6.setBackground(new java.awt.Color(250, 0, 0));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6MouseEntered
+
+    private void jButton8MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseEntered
+        jButton8.setBackground(new java.awt.Color(250, 0, 0));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8MouseEntered
+
+    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
+        jButton2.setBackground(new java.awt.Color(250, 0, 0));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseEntered
+
+    private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
+        jButton4.setBackground(new java.awt.Color(204, 0, 0));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4MouseExited
+
+    private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
+        jButton6.setBackground(new java.awt.Color(204, 0, 0));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6MouseExited
+
+    private void jButton8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseExited
+        jButton8.setBackground(new java.awt.Color(204, 0, 0));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8MouseExited
+
+    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
+        jButton2.setBackground(new java.awt.Color(204, 0, 0));
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseExited
 
     /**
      * @param args the command line arguments
