@@ -36,6 +36,9 @@ public class UI extends javax.swing.JFrame {
         jLabel12.setText(String.valueOf(PP.getBateriasT()));//unidades bateria
         jLabel13.setText(String.valueOf(PP.getEmpleadosE()));//empleados ensambladores
         jLabel14.setText(String.valueOf(PP.getUnidadesT()));//unidades listas
+        jLabel16.setText(PP.getCron().getEstado());
+        jLabel18.setText(PP.getGeren().getEstado());
+        jLabel20.setText(String.valueOf(PP.getDiasdespacho()));
         
     }
 

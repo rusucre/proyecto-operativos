@@ -11,6 +11,8 @@ package proyectooperativos;
  */
 
 import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,6 +22,8 @@ public class ProyectoOperativos {
     
     public UI userI;
     
+    private Cronometro cron;
+    private Gerente geren;
     private Almacen Apantallas;
     private Almacen Acables;
     private Almacen Abaterias;
@@ -36,6 +40,7 @@ public class ProyectoOperativos {
     private Semaphore semaExclusividadBaterias;
     private Semaphore semaImpresionBaterias;
     private Semaphore Ensam;
+    private Semaphore DD;
     private int apuntPpantallas;
     private int apuntCpantallas;
     private int apuntPcables;
@@ -58,6 +63,7 @@ public class ProyectoOperativos {
      private int DormirPantalla;
      private int DormirCable;
      private int DormirBateria;
+     private int dormir;
      
      private int MaxP;
      private int MaxC;
@@ -65,14 +71,33 @@ public class ProyectoOperativos {
      private int MaxE;
      
      
-     private int PantallasT;
+    private int PantallasT;
     private int CablesT;
     private int BateriasT;
     private int UnidadesT;
+    
+    private int diasdespacho;
+
+    public Cronometro getCron() {
+        return cron;
+    }
+
+    public Gerente getGeren() {
+        return geren;
+    }
+    
+    
      
      
 
-    public ProyectoOperativos(int Apan, int Acab, int Abat, int DormirPantalla, int DormirCable, int DormirBateria, int DormirEnsamblador, int MaxP, int MaxC, int MaxB, int MaxE) {
+    public ProyectoOperativos(int dormir,int diasdespacho, int Apan, int Acab, int Abat, int DormirPantalla, int DormirCable, int DormirBateria, int DormirEnsamblador, int MaxP, int MaxC, int MaxB, int MaxE) {
+        
+        this.diasdespacho=diasdespacho;
+        DD= new Semaphore(1);
+        this.dormir=dormir;
+        geren=new Gerente( DD,dormir, this, this.diasdespacho);
+        cron=new Cronometro( DD, this, this.diasdespacho,dormir);
+
         userI= new UI(this);
         userI.setVisible(true);
         this.Abat=Abat;
@@ -90,6 +115,11 @@ public class ProyectoOperativos {
         empleadosC=0;
         empleadosB=0;
         empleadosE=0;
+
+        
+
+
+        
         
         Apantallas=new Almacen(Apan);
         Abaterias=new Almacen(Abat);
@@ -331,9 +361,33 @@ public class ProyectoOperativos {
 //        
 //    }
 
+    public int getDiasdespacho() {
+        return diasdespacho;
+    }
+
+    public void setDiasdespacho(int diasdespacho) {
+        this.diasdespacho = diasdespacho;
+        System.out.println("cerito");
+    }
+    
+    public void despachar(){
+
+        try {
+        this.Ensam.acquire();
+        UnidadesT=0;
+        this.userI.ActLabels();
+            System.out.println("Despache xd");
+        this.Ensam.release();
+        } catch (InterruptedException ex) {
+            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+
    
     public static void main(String[] args) {
-        int dia=1000;
+        int dia=5000;
         int pantallasmaximas=30;
         int cablesmaximos=25;
         int bateriasmaximas=35;
@@ -345,11 +399,12 @@ public class ProyectoOperativos {
         int productoresdecablesini=4; 
         int productoresdebateriasini=4;
         int ensambladoresini=1;
+        int diasdespacho=5;
 
         // leer jason
         
        
-       ProyectoOperativos a= new ProyectoOperativos(pantallasmaximas,cablesmaximos,bateriasmaximas,(dia),(2*dia),(dia),(2*dia),productoresdepantallasmas,productoresdecablesmax,productoresdebateriasmax,ensambladoresmax);
+       ProyectoOperativos a= new ProyectoOperativos(dia,diasdespacho,pantallasmaximas,cablesmaximos,bateriasmaximas,(dia),(2*dia),(dia),(2*dia),productoresdepantallasmas,productoresdecablesmax,productoresdebateriasmax,ensambladoresmax);
        
        for(int i=0; i<productoresdepantallasini; i++){
        a.contratarPantalla();   
@@ -363,6 +418,9 @@ public class ProyectoOperativos {
        for(int i=0; i<ensambladoresini; i++){
        a.contratarEnsamblador();  
        }
+       
+       a.geren.start();
+       a.cron.start();
        
       
        
