@@ -13,6 +13,7 @@ package proyectooperativos;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+// revisar constructores del ensamblador y de pantallas, unico valor que se buguea
 
 /**
  *
@@ -218,7 +219,8 @@ public class ProyectoOperativos {
     
     public void contratarPantalla(){
          int i=0;
-         do{
+         if(empleadosP<MaxP){
+             do{
              if(ppantallas[i]==null){
                  ppantallas[i]=new Ppantalla(this, Apantallas, semaProductoresPantalla, semaConsumidoresPantalla, semaExclusividadPantalla, apuntPpantallas,1,DormirPantalla);
                  empleadosP++;
@@ -229,11 +231,14 @@ public class ProyectoOperativos {
                  i++;
              }
          }while(i<this.MaxP);
+         }
+         
     }
     
     public void contratarCable(){
         int i=0;
-         do{
+        if(empleadosC<MaxC){
+            do{
              if(pcables[i]==null){
                  pcables[i]=new Pcable(this, Acables, semaProductoresCables, semaConsumidoresCables, semaExclusividadCables, apuntPcables,1,DormirCable);
                  empleadosC++;
@@ -244,12 +249,15 @@ public class ProyectoOperativos {
                  i++;
              }
          }while(i<this.MaxC);
+         }
+         
         
     }
     
     public void contratarBateria(){
         int i=0;
-         do{
+        if(empleadosB<MaxB){
+            do{
              if(pbaterias[i]==null){
                  pbaterias[i]=new Pbateria(this, Abaterias, semaProductoresBaterias, semaConsumidoresBaterias, semaExclusividadBaterias, apuntPbaterias,1,DormirBateria);
                  empleadosB++;
@@ -260,12 +268,18 @@ public class ProyectoOperativos {
                  i++;
              }
          }while(i<this.MaxB);
+         }
+         
         
     }
     
+//        public Ensamblador(Semaphore units, ProyectoOperativos PP,Almacen a1, Semaphore sP1, Semaphore sC1, Semaphore sE1, int apuntP1, Almacen a2, Semaphore sP2, Semaphore sC2, Semaphore sE2, int apuntP2, Almacen a3, Semaphore sP3, Semaphore sC3, Semaphore sE3, int apuntP3, int val, int dormir) {
+
+    
     public void contratarEnsamblador(){
         int i=0;
-         do{
+        if(empleadosE<MaxE){
+            do{
              if(ensambladores[i]==null){
 //                     public Ensamblador(Almacen a1, Semaphore sP1, Semaphore sC1, Semaphore sE1, Semaphore sI1, int apuntP1, Almacen a2, Semaphore sP2, Semaphore sC2, Semaphore sE2, Semaphore sI2, int apuntP2, Almacen a3, Semaphore sP3, Semaphore sC3, Semaphore sE3, Semaphore sI3, int apuntP3, int val) {
 
@@ -278,29 +292,37 @@ public class ProyectoOperativos {
                  i++;
              }
          }while(i<this.MaxE);
+         }
+         
          
          
        
     }
     
     public void despedirPantalla(){
-             int i=0;
+             
+        if(empleadosP>0){
+            empleadosP--;
+            int i=0;
          do{
              if(ppantallas[i]!=null){
-                 ppantallas[i].chao();
-                 ppantallas[i]=null;
-                 empleadosP--;
                  i=this.MaxP;
                  userI.ActLabels();
+                 ppantallas[i].fuego=false;
+                 ppantallas[i]=null;
              }else{
                  i++;
              }
          }while(i<this.MaxP);
+        }
+         
+         
          }
     
     public void despedirCable(){
                      int i=0;
-         do{
+                     if(empleadosC>0){
+                       do{
              if(pcables[i]!=null){
                  pcables[i].chao();
                  pcables[i]=null;
@@ -311,12 +333,15 @@ public class ProyectoOperativos {
                  i++;
              }
          }while(i<this.MaxC);
+           
+                     }
         
     }
     
     public void despedirBateria(){
                      int i=0;
-         do{
+                     if(empleadosB>0){
+                        do{
              if(pbaterias[i]!=null){
                  pbaterias[i].chao();
                  pbaterias[i]=null;
@@ -326,13 +351,16 @@ public class ProyectoOperativos {
              }else{
                  i++;
              }
-         }while(i<this.MaxB);
+         }while(i<this.MaxB); 
+                     }
+         
         
     }
     
     public void despedirEnsamblador(){
                      int i=0;
-         do{
+                     if(empleadosE>0){
+                          do{
              if(ensambladores[i]!=null){
                  ensambladores[i].chao();
                  ensambladores[i]=null;
@@ -343,6 +371,8 @@ public class ProyectoOperativos {
                  i++;
              }
          }while(i<this.MaxE);
+                     }
+        
         
     }
 //    public void despedirPantalla(){
@@ -387,24 +417,24 @@ public class ProyectoOperativos {
 
    
     public static void main(String[] args) {
-        int dia=5000;
+        int dia=1000;
         int pantallasmaximas=30;
         int cablesmaximos=25;
         int bateriasmaximas=35;
         int productoresdepantallasmas=8;
-        int productoresdecablesmax=4;
+        int productoresdecablesmax=8;
         int productoresdebateriasmax=5;
-        int ensambladoresmax=5;
-        int productoresdepantallasini=1;
-        int productoresdecablesini=4; 
-        int productoresdebateriasini=4;
+        int ensambladoresmax=20;
+        int productoresdepantallasini=2;
+        int productoresdecablesini=2; 
+        int productoresdebateriasini=1;
         int ensambladoresini=1;
         int diasdespacho=5;
 
         // leer jason
         
        
-       ProyectoOperativos a= new ProyectoOperativos(dia,diasdespacho,pantallasmaximas,cablesmaximos,bateriasmaximas,(dia),(2*dia),(dia),(2*dia),productoresdepantallasmas,productoresdecablesmax,productoresdebateriasmax,ensambladoresmax);
+       ProyectoOperativos a= new ProyectoOperativos(dia,diasdespacho,pantallasmaximas,cablesmaximos,bateriasmaximas,(2*dia),(dia),(dia),(2*dia),productoresdepantallasmas,productoresdecablesmax,productoresdebateriasmax,ensambladoresmax);
        
        for(int i=0; i<productoresdepantallasini; i++){
        a.contratarPantalla();   

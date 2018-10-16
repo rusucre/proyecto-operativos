@@ -19,7 +19,7 @@ public class Productor extends Thread{
     protected int apuntP;
     protected int val;
     protected int dormir;
-    protected boolean fuego=true;
+    public boolean fuego=true;
 
     public Productor(ProyectoOperativos PP,Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
         this.PP=PP;

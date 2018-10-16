@@ -123,8 +123,9 @@ public class Ensamblador extends Thread{
      
       public void run(){
         while(fuego){
-       
-              try {
+            
+            if(this.pantallas==0){
+                try {
             this.PP.userI.ActLabels();
             sP1.acquire();
             sE1.acquire();
@@ -138,9 +139,12 @@ public class Ensamblador extends Thread{
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
+            }
+       
+              
             
-            
-              try {
+              if(this.cables==0){
+                  try {
             this.PP.userI.ActLabels();
             sP2.acquire(2);
             sE2.acquire();
@@ -157,7 +161,10 @@ public class Ensamblador extends Thread{
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
-                                 
+              }
+            
+              if(this.baterias==0){
+                                  
               try {
             this.PP.userI.ActLabels();
             sP3.acquire();
@@ -171,7 +178,9 @@ public class Ensamblador extends Thread{
             this.PP.userI.ActLabels();
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }   
+              }
+              
               
               try {
             this.PP.userI.ActLabels();
