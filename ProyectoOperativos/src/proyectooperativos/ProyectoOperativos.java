@@ -299,7 +299,7 @@ public class ProyectoOperativos {
        
     }
     
-    public void despedirPantalla(){
+    public void despedirPantalla(){ // evaluar
              
         if(empleadosP>0){
             empleadosP--;
