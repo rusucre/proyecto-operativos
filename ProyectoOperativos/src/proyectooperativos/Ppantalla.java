@@ -6,16 +6,20 @@
 package proyectooperativos;
 
 import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author risy1
  */
 public class Ppantalla extends Productor{
-    
-    public Ppantalla(ProyectoOperativos PP, Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
-        super(PP, a, sP, sC, sE, apuntP, val, dormir);
+
+    public Ppantalla(Semaphore units, ProyectoOperativos PP, Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
+        super(units, PP, a, sP, sC, sE, apuntP, val, dormir);
     }
+    
+    
     
     @Override
     public void Sumar(){

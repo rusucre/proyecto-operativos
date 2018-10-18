@@ -16,12 +16,14 @@ public class Productor extends Thread{
     protected Semaphore sP;
     protected Semaphore sC;
     protected Semaphore sE;
+    protected Semaphore units;
     protected int apuntP;
     protected int val;
     protected int dormir;
     public boolean fuego=true;
 
-    public Productor(ProyectoOperativos PP,Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
+    public Productor(Semaphore units, ProyectoOperativos PP,Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
+        this.units=units;
         this.PP=PP;
         this.a = a;
         this.sP = sP;
@@ -49,9 +51,9 @@ public class Productor extends Thread{
             sP.acquire();
             sE.acquire();
             a.setVec(apuntP, val);
-            this.Sumar();
             apuntP=(apuntP+1)%a.getTam();
             this.PP.userI.ActLabels();
+            this.Sumar();
             sC.release();
             sE.release();
         } catch (InterruptedException ex) {

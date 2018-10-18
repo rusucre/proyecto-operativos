@@ -93,113 +93,184 @@ public class Ensamblador extends Thread{
 //        }
 //    }
     
-    public boolean NeedPantallas(){
-        return (pantallas==1);
-    }
-     public boolean NeedBaterias(){
-        return (baterias==1);
-    }
-     public boolean NeedCables(){
-        return (cables==2);
-    }
-     
-     public void PantSum(){
-         this.pantallas++;
-     }
-     
-     public void CabSum(){
-         this.cables++;
-     }
-     
-     public void BatSum(){
-         this.baterias++;
-     }
-     
+//    public boolean NeedPantallas(){
+//        return (pantallas==1);
+//    }
+//     public boolean NeedBaterias(){
+//        return (baterias==1);
+//    }
+//     public boolean NeedCables(){
+//        return (cables==2);
+//    }
+//     
+//     public void PantSum(){
+//         this.pantallas++;
+//     }
+//     
+//     public void CabSum(){
+//         this.cables++;
+//     }
+//     
+//     public void BatSum(){
+//         this.baterias++;
+//     }
+//     
+//     public void chao(){
+//         this.fuego=false;
+//     }
+//     
+//     public void PantRest(){
+//         pantallas--;
+//     }
+//     
+//     public void CabRest(){
+//         cables=cables-2;
+//     }
+//     
+//     public void BatRest(){
+//         baterias--;
+//     }
      public void chao(){
          this.fuego=false;
      }
      
      
-     
       public void run(){
         while(fuego){
-            
-            if(this.pantallas==0){
-                try {
-            this.PP.userI.ActLabels();
-            sP1.acquire();
-            sE1.acquire();
+
+            try{
+                sP1.acquire();
+                sP2.acquire(2);
+                sP3.acquire();
+
+                sE1.acquire();
             a1.setVec(apuntP1, val);
             apuntP1=(apuntP1+1)%a1.getTam();
-            this.PantSum();
+//            this.PantSum();
+            PP.RestarP();
+
             this.PP.userI.ActLabels();
-            sC1.release();
-            sE1.release();
-            this.PP.userI.ActLabels();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            }
-       
-              
-            
-              if(this.cables==0){
-                  try {
-            this.PP.userI.ActLabels();
-            sP2.acquire(2);
-            sE2.acquire();
-            this.PP.userI.ActLabels();
+                sE1.release();
+
+
+                sE2.acquire();
             for(int i=0;i<2;i++){
                 a2.setVec(apuntP2, val);
                 apuntP2=(apuntP2+1)%a2.getTam();
-                this.CabSum();
+//                this.CabSum();
+                PP.RestarC();
+
+                this.PP.userI.ActLabels();
+
             }
-            this.PP.userI.ActLabels();
-            sC2.release(2);
             sE2.release();
-            this.PP.userI.ActLabels();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-        }
-              }
-            
-              if(this.baterias==0){
-                                  
-              try {
-            this.PP.userI.ActLabels();
-            sP3.acquire();
+
             sE3.acquire();
             a3.setVec(apuntP3, val);
             apuntP3=(apuntP3+1)%a3.getTam();
-            this.BatSum();
+//            this.BatSum();
+            PP.RestarB();
             this.PP.userI.ActLabels();
-            sC3.release();
             sE3.release();
-            this.PP.userI.ActLabels();
-        } catch (InterruptedException ex) {
-            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-        }   
-              }
-              
-              
-              try {
-            this.PP.userI.ActLabels();
-            units.acquire();
-            PP.RestarC();
-            units.release();
+
+//            this.PP.userI.ActLabels();
+//            units.acquire();
+//            PP.RestarC();
+//            units.release();
+//            this.PP.userI.ActLabels();
             Thread.sleep(dormir);
             units.acquire();
             PP.SumarU();
             units.release();
-            pantallas--;
-            cables--;
-            cables--;
-            baterias--;
             System.out.println("tengo uno mas xd"+PP.getUnidadesT());
             this.PP.userI.ActLabels();
-        } catch (InterruptedException ex) {
+            
+                sC1.release();
+                sC2.release(2);
+                sC3.release();
+
+
+            } catch(InterruptedException ex){
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
-        }
+
+            }
+            
+//            if(this.pantallas==0){
+//                try {
+//            this.PP.userI.ActLabels();
+//            sP1.acquire();
+//            sE1.acquire();
+//            a1.setVec(apuntP1, val);
+//            apuntP1=(apuntP1+1)%a1.getTam();
+//            this.PantSum();
+//            this.PP.userI.ActLabels();
+//            sC1.release();
+//            sE1.release();
+//            this.PP.userI.ActLabels();
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//            }
+//
+//
+//
+//              if(this.cables==0){
+//                  try {
+//            this.PP.userI.ActLabels();
+//            sP2.acquire(2);
+//            sE2.acquire();
+//            this.PP.userI.ActLabels();
+//            for(int i=0;i<2;i++){
+//                a2.setVec(apuntP2, val);
+//                apuntP2=(apuntP2+1)%a2.getTam();
+//                this.CabSum();
+//            }
+//            this.PP.userI.ActLabels();
+//            sC2.release(2);
+//            sE2.release();
+//            this.PP.userI.ActLabels();
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//              }
+//
+//              if(this.baterias==0){
+//
+//              try {
+//            this.PP.userI.ActLabels();
+//            sP3.acquire();
+//            sE3.acquire();
+//            a3.setVec(apuntP3, val);
+//            apuntP3=(apuntP3+1)%a3.getTam();
+//            this.BatSum();
+//            this.PP.userI.ActLabels();
+//            sC3.release();
+//            sE3.release();
+//            this.PP.userI.ActLabels();
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//              }
+//
+//
+//              try {
+//            this.PP.userI.ActLabels();
+//            units.acquire();
+//            PP.RestarC();
+//            units.release();
+//            Thread.sleep(dormir);
+//            units.acquire();
+//            PP.SumarU();
+//            units.release();
+//            pantallas--;
+//            cables--;
+//            cables--;
+//            baterias--;
+//            System.out.println("tengo uno mas xd"+PP.getUnidadesT());
+//            this.PP.userI.ActLabels();
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
+//        }
             
           
             

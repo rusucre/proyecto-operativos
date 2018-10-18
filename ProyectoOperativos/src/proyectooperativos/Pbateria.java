@@ -6,19 +6,23 @@
 package proyectooperativos;
 
 import java.util.concurrent.Semaphore;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author risy1
  */
 public class Pbateria extends Productor{
-    
-    public Pbateria(ProyectoOperativos PP, Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
-        super(PP, a, sP, sC, sE, apuntP, val, dormir);
+
+    public Pbateria(Semaphore units, ProyectoOperativos PP, Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
+        super(units, PP, a, sP, sC, sE, apuntP, val, dormir);
     }
+   
     
     @Override
     public void Sumar(){
+
         PP.SumarB();
     }
 }

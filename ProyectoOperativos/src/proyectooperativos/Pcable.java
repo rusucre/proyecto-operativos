@@ -12,10 +12,11 @@ import java.util.concurrent.Semaphore;
  * @author risy1
  */
 public class Pcable extends Productor{
-    
-    public Pcable(ProyectoOperativos PP, Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
-        super(PP, a, sP, sC, sE, apuntP, val, dormir);
+
+    public Pcable(Semaphore units, ProyectoOperativos PP, Almacen a, Semaphore sP, Semaphore sC, Semaphore sE, int apuntP, int val, int dormir) {
+        super(units, PP, a, sP, sC, sE, apuntP, val, dormir);
     }
+   
     
     @Override
     public void Sumar(){

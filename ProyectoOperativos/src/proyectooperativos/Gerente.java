@@ -48,6 +48,7 @@ public class Gerente extends Thread{
                 PP.setDiasdespacho(this.diast);
                 DD.release();
                 sleep=1;
+                PP.userI.ActLabels();
             }else{
                 DD.release();
                 alet=(int) (Math.random() * 12) + 6;

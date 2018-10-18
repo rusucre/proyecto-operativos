@@ -151,7 +151,7 @@ public class ProyectoOperativos {
     pbaterias=new Productor [MaxB]; //inicial 2 maximo 4
     ensambladores= new Ensamblador[MaxE]; //incial 1 maximo 5
     
-    PantallasT=0;
+        PantallasT=0;
         CablesT=0;
         BateriasT=0;
         UnidadesT=0;
@@ -210,19 +210,27 @@ public class ProyectoOperativos {
         UnidadesT++;
     }
     
-    public void RestarC(){
+    public void RestarP(){
         PantallasT--;
-        BateriasT--;
-        CablesT--;
+    }
+    
+    public void RestarC(){
         CablesT--;
     }
+    
+    public void RestarB(){
+        BateriasT--;
+    }
+    
+   
+    
     
     public void contratarPantalla(){
          int i=0;
          if(empleadosP<MaxP){
              do{
              if(ppantallas[i]==null){
-                 ppantallas[i]=new Ppantalla(this, Apantallas, semaProductoresPantalla, semaConsumidoresPantalla, semaExclusividadPantalla, apuntPpantallas,1,DormirPantalla);
+                 ppantallas[i]=new Ppantalla(this.Ensam, this, Apantallas, semaProductoresPantalla, semaConsumidoresPantalla, semaExclusividadPantalla, apuntPpantallas,1,DormirPantalla);
                  empleadosP++;
                  ppantallas[i].start();
                  i=this.MaxP;
@@ -240,7 +248,7 @@ public class ProyectoOperativos {
         if(empleadosC<MaxC){
             do{
              if(pcables[i]==null){
-                 pcables[i]=new Pcable(this, Acables, semaProductoresCables, semaConsumidoresCables, semaExclusividadCables, apuntPcables,1,DormirCable);
+                 pcables[i]=new Pcable(this.Ensam, this, Acables, semaProductoresCables, semaConsumidoresCables, semaExclusividadCables, apuntPcables,1,DormirCable);
                  empleadosC++;
                  pcables[i].start();
                  i=this.MaxC;
@@ -259,7 +267,7 @@ public class ProyectoOperativos {
         if(empleadosB<MaxB){
             do{
              if(pbaterias[i]==null){
-                 pbaterias[i]=new Pbateria(this, Abaterias, semaProductoresBaterias, semaConsumidoresBaterias, semaExclusividadBaterias, apuntPbaterias,1,DormirBateria);
+                 pbaterias[i]=new Pbateria(this.Ensam, this, Abaterias, semaProductoresBaterias, semaConsumidoresBaterias, semaExclusividadBaterias, apuntPbaterias,1,DormirBateria);
                  empleadosB++;
                  pbaterias[i].start();
                  i=this.MaxB;
@@ -300,21 +308,37 @@ public class ProyectoOperativos {
     }
     
     public void despedirPantalla(){ // evaluar
-             
+
+        int i=0;
         if(empleadosP>0){
-            empleadosP--;
-            int i=0;
-         do{
-             if(ppantallas[i]!=null){
-                 i=this.MaxP;
-                 userI.ActLabels();
-                 ppantallas[i].fuego=false;
-                 ppantallas[i]=null;
-             }else{
-                 i++;
-             }
-         }while(i<this.MaxP);
+            do{
+                if(ppantallas[i]!=null){
+                    ppantallas[i].chao();
+                    ppantallas[i]=null;
+                    empleadosP--;
+                    i=this.MaxP;
+                    userI.ActLabels();
+                }else{
+                    i++;
+                }
+            }while(i<this.MaxP);
+
         }
+             
+//        if(empleadosP>0){
+//            empleadosP--;
+//            int i=0;
+//         do{
+//             if(ppantallas[i]!=null){
+//                 i=this.MaxP;
+//                 userI.ActLabels();
+//                 ppantallas[i].fuego=false;
+//                 ppantallas[i]=null;
+//             }else{
+//                 i++;
+//             }
+//         }while(i<this.MaxP);
+//        }
          
          
          }
