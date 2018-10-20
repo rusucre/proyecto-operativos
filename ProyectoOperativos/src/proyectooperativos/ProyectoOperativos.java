@@ -10,6 +10,7 @@ package proyectooperativos;
  * @author risy1
  */
 
+import java.io.IOException;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -441,6 +442,25 @@ public class ProyectoOperativos {
 
    
     public static void main(String[] args) {
+        
+      
+        //            {
+//    "dias" : "1000",
+//    "diasdespacho" : "5",
+//    "apantallaMax" : "30",
+//    "acablesMax" : "25",
+//    "abateriasMax" : "35",
+//    "epantallaIni" : "4",
+//    "ecablesIni" : "1",
+//    "ebateriasIni" : "4",
+//    "ensamIni" : "4",
+//    "epantallaMax" : "8",
+//    "ecablesMax" : "4",
+//    "ebateriaMax" : "1",
+//    "ensamMax" : "5"
+//}
+      JSONReadFromFile jj= new JSONReadFromFile();
+        
         int dia=1000;
         int pantallasmaximas=30;
         int cablesmaximos=25;
@@ -449,7 +469,7 @@ public class ProyectoOperativos {
         int productoresdecablesmax=8;
         int productoresdebateriasmax=5;
         int ensambladoresmax=20;
-        int productoresdepantallasini=2;
+        int productoresdepantallasini=jj.getEpantallaIni();
         int productoresdecablesini=2; 
         int productoresdebateriasini=1;
         int ensambladoresini=1;
