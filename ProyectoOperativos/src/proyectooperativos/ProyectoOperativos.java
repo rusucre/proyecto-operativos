@@ -422,7 +422,7 @@ public class ProyectoOperativos {
 
     public void setDiasdespacho(int diasdespacho) {
         this.diasdespacho = diasdespacho;
-        System.out.println("cerito");
+//        System.out.println("cerito");
     }
     
     public void despachar(){
@@ -431,7 +431,7 @@ public class ProyectoOperativos {
         this.Ensam.acquire();
         UnidadesT=0;
         this.userI.ActLabels();
-            System.out.println("Despache xd");
+//            System.out.println("Despache xd");
         this.Ensam.release();
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);

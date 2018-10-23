@@ -54,7 +54,7 @@ public class Gerente extends Thread{
                 alet=(int) (Math.random() * 12) + 6;
                 this.estado="dormido";
                 PP.userI.ActLabels();
-                System.out.println("dolmido");
+//                System.out.println("dolmido");
                 Thread.sleep((long) (dormir*0.041666667*alet));
                 sleep=(long) (dormir*(1-(0.041666667*alet)));
             }
@@ -63,7 +63,7 @@ public class Gerente extends Thread{
         } catch (InterruptedException ex) {
             Logger.getLogger(Productor.class.getName()).log(Level.SEVERE, null, ex);
         }
-            System.out.println("mercdes");
+//            System.out.println("mercdes");
             this.estado="despierto";
             PP.userI.ActLabels();
             try{

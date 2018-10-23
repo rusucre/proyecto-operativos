@@ -182,7 +182,7 @@ public class Ensamblador extends Thread{
             units.acquire();
             PP.SumarU();
             units.release();
-            System.out.println("tengo uno mas xd"+PP.getUnidadesT());
+//            System.out.println("tengo uno mas xd"+PP.getUnidadesT());
             this.PP.userI.ActLabels();
             
                 sC1.release();
