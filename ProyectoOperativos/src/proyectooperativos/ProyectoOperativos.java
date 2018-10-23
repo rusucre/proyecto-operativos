@@ -475,6 +475,23 @@ public class ProyectoOperativos {
         int ensambladoresini=jj.getEnsamIni();
         int diasdespacho=jj.getDiasdespacho();
         
+//        System.out.println(dia);
+//        System.out.println(diasdespacho);
+//        System.out.println(pantallasmaximas);
+//        System.out.println(cablesmaximos);
+//        System.out.println(bateriasmaximas);
+//        System.out.println(productoresdepantallasini);
+//        System.out.println(productoresdecablesini);
+//        System.out.println(productoresdebateriasini);
+//        System.out.println(ensambladoresini);
+//        System.out.println(productoresdepantallasmas);
+//        System.out.println(productoresdecablesmax);
+//        System.out.println(productoresdebateriasmax);
+//        System.out.println(ensambladoresmax);
+//        
+//        System.exit(0);
+        
+        
         
 
         // leer jason

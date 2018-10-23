@@ -105,40 +105,41 @@ public class JSONReadFromFile {
     
     public void validar(){
         if(dias<=0){
-                 JOptionPane.showMessageDialog(null,"Error (numero negativo): dias en milisegundos");
+                 JOptionPane.showMessageDialog(null,"Error (numero menor o igual a cero): dias en milisegundos");
                  this.seguir=false;
              }
-        if(diasdespacho<1){
-                JOptionPane.showMessageDialog(null,"Error (numero negativo): dias antes de despacho");
+        if(diasdespacho<=0){
+                JOptionPane.showMessageDialog(null,"Error (numero menor o igual a cero): dias antes de despacho");
                 this.seguir=false;
             }
-        if(apantallaMax<0){
-                JOptionPane.showMessageDialog(null,"Error (numero negativo): almacen de pantalla");
+        if(apantallaMax<=0){
+                JOptionPane.showMessageDialog(null,"Error (numero menor o igual a cero): almacen de pantalla");
                 this.seguir=false;
             }
-        if(acablesMax<0){
-                JOptionPane.showMessageDialog(null,"Error (numero negativo): almacen de cables");
+        if(acablesMax<=1){
+                JOptionPane.showMessageDialog(null,"Error (numero menor o igual a uno): almacen de cables");
                 this.seguir=false;
                 
             }
-        if(abateriasMax<0){
-                JOptionPane.showMessageDialog(null,"Error (numero negativo): almacen de baterias");
+        if(abateriasMax<=0){
+                JOptionPane.showMessageDialog(null,"Error (numero menor o igual a cero): almacen de baterias");
                 this.seguir=false;
             }
-        if(pantallaMax<0){
-               JOptionPane.showMessageDialog(null,"Error (numero negativo): empleados maximos productores de pantalla");
+        
+        if(pantallaMax<=0){
+               JOptionPane.showMessageDialog(null,"Error (numero menor o igual a cero): empleados maximos productores de pantalla");
                this.seguir=false;
            }
-        if(cablesMax<0){
-               JOptionPane.showMessageDialog(null,"Error (numero negativo): empleados maximos productores de cables");
+        if(cablesMax<=0){
+               JOptionPane.showMessageDialog(null,"Error (numero menor o igual a cero): empleados maximos productores de cables");
                this.seguir=false;
            }
-        if(bateriasMax<0){
-               JOptionPane.showMessageDialog(null,"Error (numero negativo): empleados maximos productores de baterias");
+        if(bateriasMax<=0){
+               JOptionPane.showMessageDialog(null,"Error (numero menor o igual a cero): empleados maximos productores de baterias");
                this.seguir=false;
            }
-        if(ensamMax<0){
-               JOptionPane.showMessageDialog(null,"Error (numero negativo): empleados maximos ensambladores");
+        if(ensamMax<=0){
+               JOptionPane.showMessageDialog(null,"Error (numero menor o igual a cero): empleados maximos ensambladores");
                this.seguir=false;
            }
          if(epantallaIni<0){
@@ -157,7 +158,6 @@ public class JSONReadFromFile {
              if(ensamIni<0){
                  JOptionPane.showMessageDialog(null,"Error (numero negativo): empleados inciales ensambladores");
                  this.seguir=false;
-               
            }
              if(epantallaIni>pantallaMax){
                  JOptionPane.showMessageDialog(null,"Error (numero mayor al maximo permitido): empleados inciales productores de pantalla");

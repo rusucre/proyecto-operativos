@@ -52,8 +52,8 @@ public class Productor extends Thread{
             sE.acquire();
             a.setVec(apuntP, val);
             apuntP=(apuntP+1)%a.getTam();
-            this.PP.userI.ActLabels();
             this.Sumar();
+            this.PP.userI.ActLabels();
             sC.release();
             sE.release();
         } catch (InterruptedException ex) {
