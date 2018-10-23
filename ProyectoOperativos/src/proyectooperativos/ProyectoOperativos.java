@@ -461,19 +461,21 @@ public class ProyectoOperativos {
 //}
       JSONReadFromFile jj= new JSONReadFromFile();
         
-        int dia=1000;
-        int pantallasmaximas=30;
-        int cablesmaximos=25;
-        int bateriasmaximas=35;
-        int productoresdepantallasmas=8;
-        int productoresdecablesmax=8;
-        int productoresdebateriasmax=5;
-        int ensambladoresmax=20;
+        int dia=jj.getDias();
+        int pantallasmaximas=jj.getApantallaMax();
+        int cablesmaximos=jj.getAcablesMax();
+        int bateriasmaximas=jj.getAbateriasMax();
+        int productoresdepantallasmas=jj.getPantallaMax();
+        int productoresdecablesmax=jj.getCablesMax();
+        int productoresdebateriasmax=jj.getBateriasMax();
+        int ensambladoresmax=jj.getEnsamMax();
         int productoresdepantallasini=jj.getEpantallaIni();
-        int productoresdecablesini=2; 
-        int productoresdebateriasini=1;
-        int ensambladoresini=1;
-        int diasdespacho=5;
+        int productoresdecablesini=jj.getEcablesIni();
+        int productoresdebateriasini=jj.getEbateriasIni();
+        int ensambladoresini=jj.getEnsamIni();
+        int diasdespacho=jj.getDiasdespacho();
+        
+        
 
         // leer jason
         
