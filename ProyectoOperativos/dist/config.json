@@ -1,0 +1,15 @@
+{
+    "dias" : "1000",
+    "diasdes" : "5",
+    "apantallaMax" : "30",
+    "acablesMax" : "35",
+    "abateriasMax" : "25",
+    "epantallasIni" : "3",
+    "ecablesIni" : "1",
+    "ebateriasIni" : "2",
+    "ensamIni" : "1",
+    "pantallasMax" : "8",
+    "cablesMax" : "3",
+    "bateriasMax" : "4",
+    "ensamMax" : "5"
+}
